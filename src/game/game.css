@@ -25,7 +25,7 @@ body.blur *:not(#popup):not(#popup *):not(#callPopup):not(#callPopup *):not(.wel
 
 .news-link {
   margin-top: 20px;
-  backgrouind-color: black;
+  background-color: black;
   color: white;
   text-align: center;
   width: 10%;

@@ -1,4 +1,4 @@
-import "style.css";
+// import "style.css"
 
 function togglePop() {
     const popup = document.querySelector(".info-popup");
