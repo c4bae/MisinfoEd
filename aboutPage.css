@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #264653;
+}
+
+.semiBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1450px;
+  height: 800px;
+  background-color: #3a6b7e;
+  opacity: 0.5;
+  z-index: -1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.aboutTitle {
+  opacity: 0;
+  color: #E9C46A;
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  text-align: center;
+  animation-name: aboutTitle;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes aboutTitle {
+  0% {
+    opacity: 0;
+    top: 0%;
+  }
+  
+  75% {
+    opacity: 0;
+  }
+
+
+  100% {
+    opacity: 1;
+    top: 20%;
+  }
+}
+
+.container
+{
+      opacity: 0;
+      position: relative;
+      transform: translateY(-2%);
+      max-width: 1200px;
+      height: 400px;
+      margin: 290px auto;
+      animation-name: tipsFadeIn;
+      animation-duration: 1s;
+      animation-delay: 1.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+}
+.container .box
+{
+      position: relative;
+      width: calc(400px - 30px);
+      height: calc(410px - 30px);
+      background: #F4A261;
+      float:left;
+      margin: 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+.container .box .icon
+{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #E9C46A;
+      transition: 0.5s;
+      z-index: 1;
+}
+.container .box:hover .icon
+{
+      top: 20px;
+      left: calc(50% - 40px);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+}
+.container .box .icon .fa
+{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      transition: 0.5s;
+      color: #264653;
+}
+.container .box:hover .icon .fa
+{
+      font-size: 40px;
+}
+.container .box .content
+{
+      position: absolute;
+      top:100%;
+      height: calc(100% - 100px);
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: 0.5s;
+      opacity: 0;
+}
+.container .box:hover .content
+{
+      top:100px;
+      opacity: 1;
+}
+.container .box .content h3
+{
+      transform: translateX(2%);
+      margin: 0 0 10px;
+      padding: 0;
+      color: #264653;
+      font-size: 30px;
+}
+.container .box .content p
+{
+      margin: 0;
+      padding: 0;
+      color: #264653;
+}
+
+@keyframes tipsFadeIn
+{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFadeIn
+{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+  .continueButton {
+  animation-name: tipsFadeIn;
+  animation-duration: 1s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;  
+  opacity: 0;
+  left: 46.5%;
+  align-items: center;
+  appearance: none;
+  background-color: #E9C46A;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#b29753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #264653;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Poppins', sans-serif;
+  height: 78px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: absolute;
+  top: 80%;
+  transform: translateY(30%);
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 30px;
+}
+
+.continueButton:focus {
+  box-shadow: #b29753 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+}
+
+.continueButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.continueButton:active {
+  box-shadow: #b29753 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.videoTitle {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  text-align: center;
+  color: #E9C46A;
+}
+
+.videoCredits {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #E9C46A;
+}
+
+.video {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.videoButton {
+  animation-name: tipsFadeIn;
+  animation-duration: 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;  
+  opacity: 0;
+  left: 69.5%;
+  align-items: center;
+  appearance: none;
+  background-color: #E9C46A;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#b29753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #264653;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Poppins', sans-serif;
+  height: 78px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: absolute;
+  top: 86%;
+  transform: translateY(30%);
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 30px;
+}
+
+.videoButton:focus {
+  box-shadow: #b29753 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+}
+
+.videoButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.videoButton:active {
+  box-shadow: #b29753 0 3px 7px inset;
+  transform: translateY(2px);
+}

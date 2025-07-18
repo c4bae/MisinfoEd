@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="grid-layout">
+      <div class="title">
+        <h1>Can YOU spot ... </h1>
+        <ul>
+          <li><span>Disinformation<strong>?</strong></span></li>
+          <li><span>Misinformation<strong>?</strong></span></li>
+          <li><span>Fake Articles<strong>?</strong></span></li>
+          <li><span>False Reports<strong>?</strong></span></li>
+        </ul>
+      </div>
+      <button class="getStartedButton" role="button">Get Started</button>
+      <button class="informationButton" role="button" type="submit" onclick="togglePop()">Information (READ)</button>
+    </div>
+  </div>
+  <div class="info-popup">
+    <div class="info-overlay">
+      <div class="info-content">
+        <div class="info-close-btn" onclick="togglePop()">&times;</div>
+        <h2>Information</h2>
+        <p>This interactive website was created for the #UnHackathon 2023 hosted by KnowledgeFlow and ICTC Canada. <br><br> Please <span style="font-weight: 800;">note</span> that this website is only available on computers and will fail to work on tablets or phones. <br><br> Remastered in 2025. </p>
+      </div>
+    </div>
+  </div>
+  <footer>Sketch 1 | Made heartily by Charles Bae</footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
