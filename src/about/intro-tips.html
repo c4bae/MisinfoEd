@@ -5,41 +5,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
-  <link href="about.css" rel="stylesheet" type="text/css" />
+  <link href="intro-tips.css" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  <div class="semiBackground">
-  </div>
-  <h1 class="aboutTitle">Now for some beginner tips: (Hover over)</h1>
-  <div class="container">
-        <div class="box">
-          <div class="icon"><i class="fa fa-face-surprise">
-          </i></div>
-          <div class="content">
-              <h3>Too good? Maybe not true.</h3>
-              <p><b>Keep an open mind!</b> <br> If some sort of information seems way too out of the blue, chances are its fake. Seek out suspicious statements through each detail, whether it relates to numbers, people, places, and more.</p>
-          </div>
+    <div class="page">
+      <div class="container">
+        <h1 class="aboutTitle">Now for some beginner tips: (hover over)</h1>
+        <div class="grid-layout">
+              <div class="box">
+                <div class="icon"><i class="fa fa-face-surprise">
+                </i></div>
+                <div class="content">
+                    <h3>Too good? Maybe not true!</h3>
+                    <p><b>Keep an open mind!</b> <br> If some sort of information seems way too out of the blue, it may be fake. Seek out suspicious statements through details like numbers, people, places, and more.</p>
+                </div>
+              </div>
+              <div class="box">
+                  <div class="icon"><i class="fa fa-person">
+                  </i></div>
+                  <div class="content">
+                      <h3>No author? No credibility!</h3>
+                      <p><b>Look for any author/editor!</b> <br> Look through the site and seek any authors or methods of communication (i.e. email) with those who wrote the article. Investigate further if needed. </p>
+                  </div>
+                </div>
+              <div class="box">
+                  <div class="icon"><i class="fa fa-magnifying-glass-location">
+                  </i></div>
+                  <div class="content">
+                      <h3>Try <br> Lateral Reading!</h3>
+                      <p><b>Don't stick to just one page!</b> <br>Check out related articles to see if the information on stays consistent. If there aren't any other articles, you should be very suspicious. (This exercise will require you to read laterally!)</p>
+                  </div>
+              </div>
         </div>
-       <div class="box">
-            <div class="icon"><i class="fa fa-person">
-            </i></div>
-            <div class="content">
-                <h3>No author? No credibility!</h3>
-                <p><b>Look for any author/editor!</b> <br> Look through the site and see if there are any authors or methods of communicating with those who wrote the article. Investigate further if needed. </p>
-            </div>
-          </div>
-       <div class="box">
-            <div class="icon"><i class="fa fa-magnifying-glass-location">
-            </i></div>
-            <div class="content">
-                <h3>Lateral Reading!</h3>
-                <p><b>Don't stick to just one page!</b> <br>Go on another tab and check out related articles to see if the information stays consistent. If there aren't any other articles, chances are that it is disinformation or fake. (This will require you to read laterally!)</p>
-            </div>
-          </div>
-  </div>
-  <a href="mainGame.html"><button class="continueButton" role="button">Lets go!</button></a>
+      </div>
+      <div class="btn"> <button class="continueButton" role="button" onclick="window.location.href='../game/index.html'">Lets go!</button></div>
+    </div>
   <script src="aboutPage.js"></script>
 
 </body>

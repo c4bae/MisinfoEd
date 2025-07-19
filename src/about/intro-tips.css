@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-sans: "Poppins", sans-serif;
+  --bg-color: #264653;
+  --clr-primary: #3a6b7e;
+  --btn-bg: #e9c46a;
+
+  --fs-900: 2.5rem;
+  --fs-600: 1.8rem;
+  --fs-400: 1.3rem;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  padding-inline: 2rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */ 
+  /* above assumes that the content fits within the viewport, as it does not allow for vertical overflow and scrolling */
+}
+
+.page {
+  margin-block: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  background-color: #3a6b7e;
+  max-width: 1800px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  padding: 0.3rem 1.5rem;
+}
+
+.aboutTitle {
+  opacity: 0;
+  color: #e9c46a;
+  font-size: var(--fs-600);
+  text-align: center;
+  animation-name: aboutTitle;
+  animation-duration: 0.3s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  font-size: var(--fs-900);
+  /* margin-bottom: 1.5rem; */
+}
+
+@keyframes aboutTitle {
+  0% {
+    opacity: 0;
+    top: 0%;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: 20%;
+  }
+}
+
+.grid-layout {
+  opacity: 1;
+  max-width: 1200px;
+  animation-name: tipsFadeIn;
+  animation-duration: 0.7s;
+  animation-delay: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.grid-layout .box {
+  background: #f4d461;
+  float: left;
+  margin: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.grid-layout .box .icon {
+  margin-inline: auto;
+  width: 100%;
+  height: 100%;
+  background: #e9c46a;
+  transition: 0.5s;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+.grid-layout .box:hover .icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.grid-layout .box .icon .fa {
+  font-size: 80px;
+  transition: 0.5s;
+  color: var(--clr-primary);
+}
+
+.grid-layout .box:hover .icon .fa {
+  font-size: 40px;
+}
+
+.grid-layout .box .content {
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.grid-layout .box:hover .content {
+  opacity: 1;
+}
+
+.grid-layout .box .content h3 {
+  margin: 0 0 10px;
+  padding: 0;
+  color: #264653;
+  font-size: 30px;
+}
+
+.grid-layout .box .content p {
+  margin: 0;
+  padding: 0;
+  color: #264653;
+}
+
+@keyframes tipsFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1152px) {
+  html {
+    padding-block: 2.5rem;
+    padding-inline: 5rem;
+  }
+  .grid-layout {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    padding-inline: 1.8rem;
+  }
+}
+
+.btn {
+  background-color: var(--clr-primary);
+  margin-inline: auto;
+  padding: 0.8rem 0.9rem;
+  border-radius: 0 0 12px 12px;
+}
+
+.continueButton {
+  animation-name: tipsFadeIn;
+  animation-duration: 0.6s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+  align-items: center;
+  appearance: none;
+  background-color: #e9c46a;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #264653;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Poppins", sans-serif;
+  height: 78px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-inline: 20px;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: var(--fs-600);
+  margin-top: 0.5rem;
+}
+
+.continueButton:focus {
+  box-shadow: #b29753 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+}
+
+.continueButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.continueButton:active {
+  box-shadow: #b29753 0 3px 7px inset;
+  transform: translateY(2px);
+}
