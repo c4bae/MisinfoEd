@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-sans: "Poppins", sans-serif;
+  --bg-color: #264653;
+  --btn-bg: #e9c46a;
+
+  --fs-900: 2.5rem;
+  --fs-600: 1.8rem;
+  --fs-400: 1.3rem;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  padding-inline: 1rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--btn-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+iframe.video {
+  max-width: 1152px;
+  max-height: 728px;
+  width: 80%;
+  height: 65%;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  border: 12px solid #3a6b7e;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: var(--fs-900);
+  margin: 0;
+  margin-top: 2rem;
+}
+
+h2 {
+  margin: 0;
+  text-align: center;
+  font-size: var(--fs-400);
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+.container {
+  margin: 0;
+  margin-inline: auto;
+  /* border: 2px solid red; */
+  background-color: #3a6b7e;
+  padding: 0.6rem;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+@keyframes tipsFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.videoButton {
+  animation-name: tipsFadeIn;
+  animation-duration: 0.35s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+  align-items: center;
+  appearance: none;
+  background-color: #e9c46a;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #264653;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+  line-height: 1;
+  display: inline-flex;
+  list-style: none;
+  overflow: hidden;
+  padding: 1.5rem 1.7rem;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 1.75rem;
+  /* margin-top: 0.15rem; */
+}
+
+.videoButton:focus {
+  box-shadow: #b29753 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+}
+
+.videoButton:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.videoButton:active {
+  box-shadow: #b29753 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--fs-600);
+    }
+
+    .videoButton {
+        font-size: 1.5rem;
+    }
+
+}
