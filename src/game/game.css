@@ -7,7 +7,7 @@
 body {
   font-family: 'Roboto Slab', serif;
   width: 90%;
-  margin: auto;
+  margin-inline: auto;
 }
 
 body.blur *:not(#popup):not(#popup *):not(#callPopup):not(#callPopup *):not(.welcomePopup):not(.welcomePopup *):not(.wrap):not(.wrap *):not(.wrap1):not(.wrap1 *) {
@@ -24,17 +24,18 @@ body.blur *:not(#popup):not(#popup *):not(#callPopup):not(#callPopup *):not(.wel
 }
 
 .news-link {
+  display: flex;
+  justify-self: start;
   margin-top: 20px;
   background-color: black;
   color: white;
   text-align: center;
-  width: 10%;
   padding: 5px;
   margin-left: 30px;
 }
 
 h1 {
-  font-size: 80px;
+  font-size: 3.9rem;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -84,24 +85,26 @@ span {
 
 .container-1 {
   display: grid;
-  grid-gap: 40px;
-  grid-template-areas: 
-  'p-1 break image-1'
-  'p-1 break image-1'
-  'p-1 break image-1';
+  grid-template-columns: repeat(2, auto);
+  gap: 1.2rem;
+  margin-top: 6px;
 }
 
-.image-1 {
-  grid-area: image-1;
-  min-height: 300px;
-  min-width: 900px;
-  margin-left: -400px;
-  margin-top: -110px;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
+.p-1 img {
+  max-width: 300px;
+  border: 4px solid black;
+}
+
+.image-1 img {
+  max-width: 1050px;
+  max-height: 700px;
+  border: 4px solid black;
+}
+
+.caption {
+  display: grid;
+  justify-self: center;
+  margin-top: 0.4rem; 
 }
 
 .break {
@@ -117,42 +120,13 @@ span {
   font-size: 30px;
 }
 
-.container-2 {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-areas: 
-    'break-mid caption';
-}
-
-.break-mid {
-    grid-area: break-mid;
-    margin-left: 345px;
-    border-color: black;
-    margin-top: -15%;
-    height: 1%;
-    width: 240%;
-}
-
-.caption-2 {
-  margin-top: 10px;
-  margin-left: 525px;
-}
-
 .container-3 {
   display: grid;
-  grid-gap: 40px;
-  grid-template-areas:
-  'p-2 break-2 image-2 p-3'
-  'p-2 break-2 image-2 p-3'
-  'p-2 break-2 image-2 p-3';
 }
 
 .break-2 {
   grid-area: break-2;
   border-color: black;
-  height: 315px;
-  margin-top: 0px;
-  margin-left: 106px;
   width: 0.5%;
 }
 
@@ -162,27 +136,19 @@ span {
   min-height: 400px;
   min-width: 400px;
   padding: 3rem;
-  didsplay: flex;
-  flex-direction: column;
-  align-self: start;
-  justify-content: center;
-  margin-left: -120px;
 }
 
 .p2 h4 {
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 20px;
 }
 
 .p3 h4 {
   text-transform: uppercase;
   font-size: 20px;
-  margin-top: 20px;
 }
 
 .hr3 {
-  margin-top: 20px;
   display: block;
   height: 1px;
   border: 0;
