@@ -4,9 +4,12 @@
   box-sizing: border-box;
 }
 
+html {
+  margin-inline: 2rem;
+}
 body {
-  font-family: 'Roboto Slab', serif;
-  width: 90%;
+  --fs-sans: 'Roboto Slab', serif;
+  font-family: var(--fs-sans);
   margin-inline: auto;
 }
 
@@ -83,86 +86,112 @@ span {
   padding: 0;
 }
 
+/* everything above here is the header of the article */
+
+.container {
+  display: flex;
+  justify-self: center;
+  margin-top: 2rem;
+}
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, auto); 
+  gap: 1.2rem;
+}
+
 .container-1 {
+  grid-column: 1/2;
+  max-width: 280px;
   display: grid;
   grid-template-columns: repeat(2, auto);
   gap: 1.2rem;
-  margin-top: 6px;
 }
 
-.p-1 img {
-  max-width: 300px;
-  border: 4px solid black;
+.content {
+  grid-column: 1/2;
 }
 
-.image-1 img {
-  max-width: 1050px;
-  max-height: 700px;
-  border: 4px solid black;
+.content p {
+  font-size: 0.9rem;
+}
+
+.container-1 img {
+  width: 100%;
+  box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
 }
 
 .caption {
-  display: grid;
-  justify-self: center;
-  margin-top: 0.4rem; 
+  color: rgb(132, 132, 132);
+} 
+
+.vl {
+  border-right: 1.5px solid rgb(37, 37, 37);
 }
 
-.break {
-  grid-area: break;
-  border-color: black;
-  height: 880px;
-  margin-left: -350px;
-  width: 0.5%;
+.container-2 {
+  grid-column: 2/-1;
+  max-width: 1100px;
 }
 
-.p1 h4 {
-  text-transform: uppercase;
-  font-size: 30px;
+.container-2 p {
+  line-height: 1.8;
 }
 
-.container-3 {
-  display: grid;
+.feature-img {
+  width: 100%;
+  box-shadow: 2px 2px 10px rgb(0,0,0,0.4);
 }
 
-.break-2 {
-  grid-area: break-2;
-  border-color: black;
-  width: 0.5%;
+.tweet {
+  box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
 }
 
-.image-2 {
-  margin-top: -50px;
-  grid-area: image-2;
-  min-height: 400px;
-  min-width: 400px;
-  padding: 3rem;
-}
-
-.p2 h4 {
-  text-transform: uppercase;
-  font-size: 20px;
-}
-
-.p3 h4 {
-  text-transform: uppercase;
-  font-size: 20px;
+h4 {
+  font-size: 2rem;
 }
 
 .hr3 {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid black;
-  padding: 0;
+  margin-top: 2rem;
 }
-
 .page-no {
   background-color: black;
   color: white;
   text-align: center;
   width: 5%;
   padding: 3px;
+  margin-bottom: 2rem;
 }
+
+@media (max-width: 1152px) {
+  .grid-layout {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, auto);
+  }
+
+  .container-1 {
+    grid-row: 2/-1;
+    grid-column: 2/-1;
+    width: 100%;
+    max-width: 1000px;
+    padding-top: 1.5rem;
+    border-top: 1px solid black;
+  }
+
+  .content img {
+    max-width: 200px;
+    max-height: 150px;
+  }
+
+  .vl {
+    display: none;
+  }
+  
+  .content {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+/* everything above here is the article layout/design */
 
 #callPopup {
   z-index: 3;
