@@ -12,21 +12,25 @@
 </head>
 
 <body>
-  
-  <div id="callPopup" style="border-radius: 25px;">
+
+  <div class="begin-overlay"></div>
+  <button class="begin-btn" onclick="beginGame()">Begin</button>
+
+  <div id="callPopup">
     <a href="#" onclick="toggleCall()">Accept Call</a>
   </div>
   
   <div class="welcomePopup">
+    <img src="assets/images/Telephone.jpg">
     <h2><b>Hello?</b></h2>
-    <img src="Telephone.jpg">
-    <p><b>Dear Rookie:</b> <br> <br> As you may know, we are living in a seriously dangerous world full of fake news. As our latest recuit, you, your job is to tackle this article that we deemed suspicious, and give us the details needed to give our overall consensus on it. <br> <br> <b>So here's your task:</b> <br> <br> Investigate this article as we tell you and let us know about the details you come across and find. This might include different author names, pictures, emails, and more. We'll let you know what we actually need. We'll continue to stay on call until the job is done.</br> <br> Disclaimer: <b>DO NOT RELOAD OR YOU WILL LOSE PROGRESS.</b></p>
-    <button type="button" onclick="closePopup()"><b>Begin!</b></button>
+    <p><b>Dear Rookie:</b> <br> <br> As you may know, we are living in a seriously dangerous world full of fake news. As our latest recuit, you, your job is to tackle this article that we deemed suspicious, and give us the details needed to give our overall consensus on it. <br> <br> <b>So here's your task:</b> <br> <br> Investigate this article as we tell you and let us know about the details you come across and find. This might include different author names, pictures, emails, and more. We'll let you know what we actually need. We'll continue to stay on call until the job is done.</br> <br> Disclaimer: <b>DO NOT RELOAD OR YOU WILL LOSE PROGRESS.</b> <br><br> </p>
+    <button type="button" onclick="closePopup()"><b>Lets go!</b></button>
   </div>
+
 
   <div class="puzzlePopup1">
     <p class="puzzle1H"><b>Hey again,</b> <br> <br> Let's start with the authors. We were most suspicious on that and I'd like you to investigate them. First, find his contact email. </p>
-    <input class="puzzle1Input" type="text" id="myInput" name="name" placeholder="Enter email address...">
+    <input class="puzzle1Input" type="email" id="myInput" placeholder="Enter email address...">
     <button class="puzzle1Button" onclick="submitPuzzle1()"><b>Submit</b></button>
     <button disabled class="puzzle1Finish" onclick="puzzle2()"><b>Continue</b>
   </div>
@@ -51,7 +55,7 @@
           <img src="../game/assets/images/ReporterStock.jpg">
           <div class="author-txt">
             <h3>Written by Edward Wolack</h3>
-            <p><br>Wolack works closely with industry professionals and has acquired massive experience throughout his 15 years of journaling and creating articles. <br> <br></p>
+            <p><br>Wolack works closely with industry professionals and has acquired massive experience throughout his career of journaling and creating articles since December, 2022. <br> <br></p>
             <p>Contact Wolack here:</p>
             <p><i>BCTimes@bctimes.com</i> <br> <br> <i>@BCTimes on <br> Instagram, Facebook, & Twitter </i> <br> <br> Feel free to send us feedback <br> with regards to the article!</p>
         
@@ -78,17 +82,18 @@
     <p>1</p>
   </div>
   
+  
   <div class="wrap">
-    <a href="endPage.html"><button disabled class="trueButton">True</button></a>
-  </div>
-  <div class="wrap1">
-    <a href="endPage.html"><button disabled class="falseButton">False</button></a>
-  </div>
+   <button disabled onclick="window.location.href='../end/index.html'" class="trueButton">Real</button>
+   <button disabled onclick="window.location.href='../end/index.html'" class="falseButton">Fake</button>
+   </div>
   
   <video class="video" width="320" height="240" controls>
-    <source src="Video_Trim.mp4" type="video/mp4">
+    <source src="assets/video/Video_Trim.mp4" type="video/mp4">
   </video>
-  <!-- <script src="game.js"></script> -->
+
+
+  <script src="game.js"></script>
 
 
 </body>

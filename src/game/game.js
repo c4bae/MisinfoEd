@@ -1,5 +1,5 @@
-const audio = new Audio('callingSFX.mp3');
-const audio2 = new Audio('pickupSFX.mp3');
+const audio = new Audio('../game/assets/audio/callingSFX.mp3');
+const audio2 = new Audio('../game/assets/audio/pickupSFX.mp3');
 
 let popup = document.querySelector('.welcomePopup');
   console.log(popup);
@@ -24,7 +24,11 @@ let popup = document.querySelector('.welcomePopup');
         }, 1000);
   }
 
-window.onload = function() {
+
+function beginGame() {
+  document.querySelector('.begin-overlay').style.display = "none";
+  document.querySelector('.begin-btn').style.display = "none";
+
   setTimeout(() => {
     audio.loop = true;
     audio.play(); 
@@ -49,6 +53,7 @@ window.onload = function() {
   }, 4000);
 };
 
+
 function toggleCall() {
   console.log("yes");
   audio.pause();
@@ -65,17 +70,19 @@ function toggleCall() {
 function submitPuzzle1() {
     console.log("submitted");
     const answer = document.querySelector('.puzzle1Input').value;
-    console.log(answer);
-    if(answer == "BCTimes@bctimes.com") {
+    if(answer.toLowerCase() == "bctimes@bctimes.com") {
       const header = document.querySelector('.puzzle1H');
       const input = document.querySelector('.puzzle1Input');
       const submitbutton = document.querySelector('.puzzle1Button');
       const continuebutton = document.querySelector('.puzzle1Finish');
-      input.style.opacity = 0;
+      continuebutton.style.display = 'block';
+      input.style.display = "none";
       submitbutton.style.opacity = 0;
       continuebutton.classList.add('fadein-class');
       continuebutton.disabled = false;
-      submitbutton.disabled = true;
+      submitbutton.style.display = "none";
+      continuebutton.style.display = 'block';
+
       header.classList.add('fadeoutandin-class');
       setTimeout(() => {
       header.innerHTML = '<b>Nice catch!</b> <br> <br> Notice how this email is not personally the authors, but the whole organizations. Remember that reputable news sites usually have personal email addresses for each author. This gives us a good reason to be suspicious so far.';
@@ -96,6 +103,7 @@ function puzzle2() {
   header.classList.add('fadeoutandin-class');
   continuebutton.classList.remove("fadein-class");
   continuebutton.disabled = true;
+  continuebutton.style.display = 'none';
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
@@ -104,15 +112,15 @@ function puzzle2() {
   input.classList.add("fadein-class");
   video.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
+  input.style.display = 'block';
   input.value = '';
   input.placeholder = 'Enter web link...';
   setTimeout(() => {
-      header.innerHTML = 'Now, lets conduct a <b> reverse image search </b> on the authors profile picture. Go to <i>https://images.google.ca</i>, and drag the image into the search bar. Whats the link of the most popular website result? For more help view video on the left! <b>(Reload if video fails to load)</b>';
+      header.innerHTML = 'Now, lets conduct a <b> reverse image search </b> on the authors profile picture. Go to <i>https://images.google.ca</i>, and drag the image into the search bar. Whats the link of the most popular website result? For more help view video on the left!';
 
       submitbutton.onclick = submitPuzzle2;
       submitbutton.disabled = false;
+      submitbutton.style.display = "block";
       header.classList.remove('fadeoutandin-class');
       input.style.opacity = 0;
       submitbutton.style.opacity = 0;
@@ -136,6 +144,9 @@ function submitPuzzle2() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -165,12 +176,13 @@ function puzzle3() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
-  
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
+
   input.value = '';
   input.placeholder = 'Enter the difference...';
   setTimeout(() => {
@@ -197,6 +209,9 @@ function submitPuzzle3() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -207,6 +222,7 @@ function submitPuzzle3() {
     header.classList.remove('fadeoutandin-class');
       
     continuebutton.onclick = puzzle4;
+    
     }, 500);
   }
     
@@ -226,12 +242,13 @@ function puzzle4() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
   input.value = '';
   input.placeholder = 'Enter here...';
   setTimeout(() => {
@@ -258,6 +275,9 @@ function submitPuzzle4() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -287,12 +307,13 @@ function puzzle5() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
   input.value = '';
   input.placeholder = 'Enter money here...';
   setTimeout(() => {
@@ -319,6 +340,9 @@ function submitPuzzle5() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -348,12 +372,13 @@ function puzzle6() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
   input.value = '';
   input.placeholder = 'Enter money here...';
   setTimeout(() => {
@@ -380,6 +405,9 @@ function submitPuzzle6() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -409,16 +437,17 @@ function puzzle7() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
   input.value = '';
   input.placeholder = 'Enter # here...';
   setTimeout(() => {
-      header.innerHTML = 'Just a couple more to go! This time we got news about a <b> whole paragraph (or two!) </b> not matching with the vast majority of other articles. You know what to do, find what number paragraph(s), 1, 2, or 3, matches this description! If theres two, seperate the numbers in your answer with: <mark>and</mark>.';
+      header.innerHTML = 'Just a couple more to go! This time we got news about a <b> whole paragraph (or two!) </b> not matching with the vast majority of other articles. You know what to do, find what number paragraph(s), 1, 2, or 3, matches this description! If there are multiple, separate the numbers with: <mark>and</mark>.';
 
       submitbutton.onclick = submitPuzzle7;
       submitbutton.disabled = false;
@@ -431,7 +460,7 @@ function puzzle7() {
 function submitPuzzle7() {
   console.log("puzzle 7");
   const answer = document.querySelector('.puzzle1Input').value;
-  if((answer == "2 and 3") || (answer == "2, 3")) {
+  if((answer == "1 and 2 and 3") || (answer == "1, 2, 3") || (answer == "1 2 3")) {
     const header = document.querySelector('.puzzle1H');
     const input = document.querySelector('.puzzle1Input');
     const submitbutton = document.querySelector('.puzzle1Button');
@@ -441,6 +470,9 @@ function submitPuzzle7() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -470,12 +502,13 @@ function puzzle8() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
-  
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
+
   input.value = '';
   input.placeholder = 'Enter here...';
   setTimeout(() => {
@@ -502,6 +535,9 @@ function submitPuzzle8() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
     
     continuebutton.classList.add('fadein-class');
     continuebutton.disabled = false;
@@ -531,16 +567,17 @@ function puzzle9() {
   continuebutton.style.opacity = 0;
   submitbutton.style.opacity = 0;
   input.style.opacity = 0;
+  input.style.display = 'block';
+  submitbutton.style.display = 'block';
+  continuebutton.style.display = 'none';
 
   submitbutton.classList.add("fadein-class");
   input.classList.add("fadein-class");
   
-  submitbutton.style.top = '23%';
-  input.style.top = '20%';
   input.value = '';
   input.placeholder = 'Enter here...';
   setTimeout(() => {
-      header.innerHTML = '<b>Now thats all from me!</b> Lets wrap up. You can continue to investigate this website and find more fake information located in this article. Otherwise, its time for you to give your final conclusion on whether or not this article is fake or not. When you are ready, enter <b>ready</b> with no capitals.';
+      header.innerHTML = '<b>Now thats all from me!</b> Lets wrap up. You can continue to investigate this website and find more fake information located in this article. Otherwise, its time for you to give your final conclusion on whether or not this article is fake or not. When you are ready, enter <b>ready</b>!';
 
       submitbutton.onclick = submitPuzzle9;
       submitbutton.disabled = false;
@@ -553,7 +590,7 @@ function puzzle9() {
 function submitPuzzle9() {
   console.log("puzzle 9");
   const answer = document.querySelector('.puzzle1Input').value;
-  if(answer == "ready") {
+  if(answer.toLowerCase() == "ready") {
     const header = document.querySelector('.puzzle1H');
     const input = document.querySelector('.puzzle1Input');
     const submitbutton = document.querySelector('.puzzle1Button');
@@ -563,6 +600,10 @@ function submitPuzzle9() {
     input.classList.remove("fadein-class");
     input.style.opacity = 0;
     submitbutton.style.opacity = 0;
+    input.style.display = 'none';
+    submitbutton.style.display = 'none';
+    continuebutton.style.display = 'block';
+    
 
     continuebutton.innerHTML = 'Finish';
     continuebutton.classList.add('fadein-class');
@@ -570,7 +611,7 @@ function submitPuzzle9() {
     submitbutton.disabled = true;
     header.classList.add('fadeoutandin-class');
     setTimeout(() => {
-    header.innerHTML = 'On the next page you will be presented with two options - <b> True </b> or <b> False </b>. Choose the one you best believe. Additionally, you will be given a summary on what youve learned here. Its been great working with you rookie and I proudly welcome you to the team!';
+    header.innerHTML = 'On the next page you will be presented with two options - <b> Real </b> or <b> Fake</b>. Choose the one you best believe. It has been great working with you rookie and I proudly welcome you to the team!';
     header.classList.remove('fadeoutandin-class');
       
     continuebutton.onclick = finish;
@@ -591,15 +632,20 @@ function finish() {
   setTimeout(() => {
     var trueButtonContainer = document.querySelector(".wrap");
     var falseButtonContainer = document.querySelector(".wrap1");
+    var popupContainer = document.querySelector(".puzzlePopup1")
 
     var trueButton = document.querySelector('.trueButton');
     var falseButton = document.querySelector('.falseButton');
     
     
     trueButtonContainer.classList.add('fadein-class');
-    falseButtonContainer.classList.add('fadein-class');
+    // falseButtonContainer.classList.add('fadein-class');
 
+    popupContainer.style.display = 'none';
+    trueButton.style.display = 'block';
+    falseButton.style.display = 'block';
     trueButton.disabled = false;
     falseButton.disabled = false;
+
   }, 1500);
 }

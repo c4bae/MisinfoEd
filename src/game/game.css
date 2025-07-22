@@ -1,4 +1,6 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,17 +10,20 @@ html {
   margin-inline: 2rem;
 }
 body {
-  --fs-sans: 'Roboto Slab', serif;
+  --fs-sans: "Roboto Slab", serif;
   font-family: var(--fs-sans);
-  margin-inline: auto;
+  margin-inline: 3rem;
 }
 
-body.blur *:not(#popup):not(#popup *):not(#callPopup):not(#callPopup *):not(.welcomePopup):not(.welcomePopup *):not(.wrap):not(.wrap *):not(.wrap1):not(.wrap1 *) {
+body.blur
+  *:not(#popup):not(#popup *):not(#callPopup):not(#callPopup *):not(
+    .welcomePopup
+  ):not(.welcomePopup *):not(.wrap):not(.wrap *):not(.wrap1):not(.wrap1 *) {
   transition: filter 0.4s ease;
   filter: blur(5px);
 }
 
-.hr1{
+.hr1 {
   display: block;
   height: 1px;
   border: 0;
@@ -50,7 +55,7 @@ h1 {
   letter-spacing: 2px;
   margin-top: 0;
   text-transform: uppercase;
-  font-style:italic;
+  font-style: italic;
   background-color: black;
   color: white;
   width: 85%;
@@ -59,7 +64,7 @@ h1 {
 
 span {
   color: #ff6666;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   font-weight: 900;
 }
 
@@ -95,7 +100,7 @@ span {
 }
 .grid-layout {
   display: grid;
-  grid-template-columns: repeat(2, auto); 
+  grid-template-columns: repeat(2, auto);
   gap: 1.2rem;
 }
 
@@ -117,12 +122,12 @@ span {
 
 .container-1 img {
   width: 100%;
-  box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.2);
 }
 
 .caption {
   color: rgb(132, 132, 132);
-} 
+}
 
 .vl {
   border-right: 1.5px solid rgb(37, 37, 37);
@@ -139,11 +144,11 @@ span {
 
 .feature-img {
   width: 100%;
-  box-shadow: 2px 2px 10px rgb(0,0,0,0.4);
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.4);
 }
 
 .tweet {
-  box-shadow: 2px 2px 10px rgb(0,0,0,0.2);
+  box-shadow: 2px 2px 10px rgb(0, 0, 0, 0.2);
 }
 
 h4 {
@@ -185,7 +190,7 @@ h4 {
   .vl {
     display: none;
   }
-  
+
   .content {
     display: flex;
     gap: 1.5rem;
@@ -194,18 +199,19 @@ h4 {
 /* everything above here is the article layout/design */
 
 #callPopup {
-  z-index: 3;
+  z-index: 5;
   position: fixed;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
   padding: 50px;
-  box-shadow: 0 5px 30px rgba(0,0,0,.30);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   background: #fff;
   visibility: hidden;
   opacity: 1;
   transition: 0s;
+  border-radius: 12px;
 }
 
 #callPopup.active {
@@ -215,7 +221,7 @@ h4 {
 }
 
 a {
-  border-radius: 25px;
+  border-radius: 12px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -231,153 +237,174 @@ a {
 }
 
 .welcomePopup {
-        border: 2px solid #000;
-        z-index: 3;
-        width: 800px;
-        height: 630px;
-        background: #fff;
-        border-radius: 15px;
-        position: fixed;
-        top: 98%;
-        left: 50%;
-        transform: translate(-50%, -60%) scale(0.1);
-        text-align: center;
-        padding: 0 30px 20px;
-        color: #000;
-        visibility: hidden;
-        transition: transform 0.4s, top 0.4s;
-    }
+  margin-inline: 1rem;
+  margin-block: 1rem;
+  overflow-x: hidden;
+  border: 2px solid #000;
+  z-index: 3;
+  max-width: 1000px;
+  width: 70%;
+  max-height: 800px;
+  /* if margin-inline in html ineffective, carry out this calc to maintain the margins */
+  background: #fff;
+  border-radius: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%) scale(0.1);
+  text-align: center;
+  color: #000;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+}
 
-    .welcomePopup img {
-        border: 2px solid #000;
-        width: 250px;
-        height: auto;
-        position: relative;
-        top: -35%;
-        border-radius: 50%;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
+.welcomePopup img {
+  border: 2px solid #000;
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-self: center;
+}
 
-    .welcomePopup h2 {
-        font-size: 60px;
-        font-weight: 500;
-        position: relative;
-        top: 15%;
-        margin: 30px 0 5px;
-        color: #000;
-    }
+.welcomePopup h2 {
+  font-size: 60px;
+  font-weight: 500;
+  color: #000;
+}
 
-    .welcomePopup button {
-        width: 100%;
-        position: relative;
-        top: -16%;
-        padding: 10px 0;
-        background: #000000;
-        color: #fff;
-        border: 0;
-        outline: none;
-        font-size: 18px;
-        border-radius: 4px;
-        cursor: pointer;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
+.welcomePopup button {
+  width: 100%;
+  position: relative;
+  top: -16%;
+  padding: 10px 0;
+  background: #000000;
+  color: #fff;
+  border: 0;
+  outline: none;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  align-self: center;
+}
 
-    .open-popup {
-        visibility: visible;
-        top: 50%;
-        transform: translate(-50%, -45%) scale(1);
-    }
+.open-popup {
+  visibility: visible;
+  /* top: 50%; */
+  transform: translate(-50%, -50%) scale(1);
+}
 
-    .welcomePopup p {
-        text-align: center;
-        position: relative;
-        top: -20%;
-        font-size: 20px;
-        color: #000;
-    }
+.welcomePopup p {
+  text-align: start;
+  position: relative;
+  top: -20%;
+  font-size: 20px;
+  color: #000;
+}
 
+@media (max-width: 1200px) {
+  .welcomePopup img {
+    max-width: 100px;
+  }
+
+  .welcomePopup h2 {
+    font-size: 2.9rem;
+  }
+
+  .welcomePopup p {
+    font-size: 1rem;
+  }
+}
 
 .puzzlePopup1 {
-        border: 2px solid #000;
-        z-index: 3;
-        width: 400px;
-        height: 330px;
-        background: #fff;
-        border-radius: 15px;
-        position: fixed;
-        top: 98%;
-        left: 50%;
-        transform: translate(-50%, -60%) scale(0.1);
-        text-align: center;
-        padding: 0 30px 20px;
-        color: #000;
-        visibility: hidden;
-        transition: transform 0.4s, top 0.4s;
-    }
+  border: 2px solid #000;
+  z-index: 6;
+  max-width: 400px;
+  max-height: 470px;
+  background: #fff;
+  border-radius: 15px;
+  position: fixed;
+  text-align: center;
+  padding: 1.4rem;
+  color: #000;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  display: grid;
+  gap: 1.5rem;
+}
 
-    .puzzleopen-popup {
-        visibility: visible;
-        left: 60%;
-        top: 30%;
-        transform: translate(50%, -45%) scale(1);
-    }
+.puzzleopen-popup {
+  visibility: visible;
+  left: 50%;
+  top: 30%;
+  transform: translate(50%, -45%) scale(1);
+}
 
-    .puzzlePopup1 p {
-        text-align: center;
-        position: relative;
-        top: 7%;
-        font-size: 20px;
-        color: #000;
-    }
+.puzzlePopup1 p {
+  text-align: center;
+  font-size: 20px;
+  color: #000;
+}
 
-    .puzzle1Input {
-      position: relative;
-      top: 20%;
-      padding: 12px;
-      border: 2px solid #000;
-      box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-      font-family:monospace;
-    }
+.puzzle1Input {
+  position: relative;
+  top: 20%;
+  padding: 12px;
+  border: 2px solid #000;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  font-family: monospace;
+}
 
-    .puzzle1Button {
-      position: relative;
-      width: 50%;
-      top: 25%;
-      padding: 10px;
-      border: 2px solid #000;
-      box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-      background: #000;
-      color: #fff;
-      font-family:monospace;
-      font-size: 15px;
-    }
+.puzzle1Button {
+  justify-self: center;
+  position: relative;
+  width: 50%;
+  padding: 10px;
+  border: 2px solid #000;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  font-size: 15px;
+  cursor: pointer;
+}
 
-    .fadeoutandin-class {
-      animation-name: fadeoutandin;
-      animation-duration: 1.5s;
-      animation-fill-mode: forwards;
-    }
+.fadeoutandin-class {
+  animation-name: fadeoutandin;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
 
-    .fadein-class {
-      animation-name: fadeIn;
-      animation-duration: 2.5s;
-      animation-delay: 2s;
-      animation-fill-mode: forwards;
-    }
+.fadein-class {
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
 
-    .puzzle1Finish {
-          opacity: 0;
-          position: relative;
-          width: 50%;
-          top: -15%;
-          padding: 10px;
-          border: 2px solid #000;
-          box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-          background: #000;
-          color: #fff;
-          font-family:monospace;
-          font-size: 15px;
-        }
+.puzzle1Finish {
+  justify-self: center;
+  display: none;
+  cursor: pointer;
+  opacity: 0;
+  position: relative;
+  width: 50%;
+  top: -15%;
+  padding: 10px;
+  border: 2px solid #000;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  background: #000;
+  color: #fff;
+  font-family: monospace;
+  font-size: 15px;
+}
 
 @keyframes fadeoutandin {
   0% {
@@ -404,63 +431,73 @@ a {
   opacity: 0;
   position: fixed;
   top: 50%;
-  left: 35%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8.0rem;
 }
 
 .trueButton {
+  z-index: 7;
   min-width: 300px;
   min-height: 60px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 45px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
   color: #313133;
   background: #77d251;
-  background: linear-gradient(90deg, rgba(129,230,129,1) 0%, rgba(79,209,158,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(129, 230, 129, 1) 0%,
+    rgba(79, 209, 158, 1) 100%
+  );
   border: none;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(79,209,158,.64);
+  box-shadow: 12px 12px 24px rgba(79, 209, 158, 0.64);
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
+  display: none;
   position: relative;
   padding: 10px;
-  }
+}
 
 .trueButton::before {
-content: '';
+  content: "";
   border-radius: 1000px;
   min-width: calc(300px + 12px);
   min-height: calc(60px + 12px);
   border: 6px solid #44ff00;
-  box-shadow: 0 0 60px rgba(0,255,158,.64);
+  box-shadow: 0 0 60px rgba(0, 255, 158, 0.64);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: all .3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
-.trueButton:hover, .trueButton:focus {
+.trueButton:hover,
+.trueButton:focus {
   color: #313133;
   transform: translateY(-6px);
 }
 
-.trueButton:hover::before, .trueButton:focus::before {
+.trueButton:hover::before,
+.trueButton:focus::before {
   opacity: 1;
 }
 
 .trueButton::after {
-  content: '';
-  width: 30px; height: 30px;
+  content: "";
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   border: 6px solid #11ff00;
   position: absolute;
@@ -471,7 +508,8 @@ content: '';
   animation: ring 1.5s infinite;
 }
 
-.trueButtonton:hover::after, .trueButton:focus::after {
+.trueButtonton:hover::after,
+.trueButton:focus::after {
   animation: none;
   display: none;
 }
@@ -503,53 +541,62 @@ content: '';
 }
 
 .falseButton {
+  z-index: 7;
   min-width: 300px;
   min-height: 60px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 45px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
   font-weight: 700;
   color: #313133;
   background: #d25164;
-  background: linear-gradient(90deg, rgba(230,129,129,1) 0%, rgba(210,80,80,1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(230, 129, 129, 1) 0%,
+    rgba(210, 80, 80, 1) 100%
+  );
   border: none;
   border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(210,80,80,.64);
+  box-shadow: 12px 12px 24px rgba(210, 80, 80, 0.64);
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
+  display: none;
   position: relative;
   padding: 10px;
-  }
+}
 
 .falseButton::before {
-content: '';
+  content: "";
   border-radius: 1000px;
   min-width: calc(300px + 12px);
   min-height: calc(60px + 12px);
   border: 6px solid #ff0019;
-  box-shadow: 0 0 60px rgba(255,34,0,.64);
+  box-shadow: 0 0 60px rgba(255, 34, 0, 0.64);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: all .3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
 }
 
-.falseButton:hover, .falseButton:focus {
+.falseButton:hover,
+.falseButton:focus {
   color: #313133;
   transform: translateY(-6px);
 }
 
-.falseButton:hover::before, .falseButton:focus::before {
+.falseButton:hover::before,
+.falseButton:focus::before {
   opacity: 1;
 }
 
 .falseButton::after {
-  content: '';
-  width: 30px; height: 30px;
+  content: "";
+  width: 30px;
+  height: 30px;
   border-radius: 100%;
   border: 6px solid #ff000d;
   position: absolute;
@@ -560,7 +607,8 @@ content: '';
   animation: ring 1.5s infinite;
 }
 
-.falseButtonton:hover::after, .falseButton:focus::after {
+.falseButtonton:hover::after,
+.falseButton:focus::after {
   animation: none;
   display: none;
 }
@@ -579,11 +627,62 @@ content: '';
 }
 
 .video {
-  border: 2px solid black;
   position: fixed;
-  left: 60%;
+  margin-right: 1.1rem;
+  left: 53%;
   top: 28%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 5;
   opacity: 0;
+}
+
+.begin-btn {
+  z-index: 6;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  align-items: center;
+  appearance: none;
+  background-color: #e9c46a;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #264653;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-self: end;
+  font-family: "Poppins", sans-serif;
+  height: 78px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 0 3rem;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 30px;
+}
+
+.begin-btn:focus {
+  box-shadow: #b29753 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #b29753 0 -3px 0 inset;
+}
+
+.begin-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
 }
