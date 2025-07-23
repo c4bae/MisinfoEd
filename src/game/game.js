@@ -1,12 +1,41 @@
 const UI = {
-  
+  beginOverlay: document.querySelector(".begin-overlay"),
+  beginGameBtn: document.querySelector(".begin-btn"),
+
+  callPopup: document.querySelector("#callPopup"),
+  introPopup: document.querySelector(".welcomePopup"),
+
+  gamePuzzleFrame: document.querySelector(".puzzlePopup1"),
+  gamePuzzleText: document.querySelector(".puzzle1H"),
+  inputElement: document.querySelector(".puzzle1Finish"),
+  gameContinueBtn: document.querySelector(".puzzle1Finish"),
+  gameSubmitBtn: document.querySelector(".puzzle1Button"),
+
+  l2HelpVideo: document.querySelector(".video"),
+
+  finalTrueContainer = document.querySelector(".wrap"),
+  finalFalseContainer = document.querySelector(".wrap1"),
+  finalTrueButton = document.querySelector(".trueButton"),
+  finalFalseButton = document.querySelector(".falseButton"),
 }
 
 const puzzleAnswers = {
-
+  l1: "bctimes@bctimes.com",
+  l2: "https://www.istockphoto.com/photo/breaking-news-gm1147538000-309584440",
+  l3: [4, 5, 6],
+  l4: "110",
+  l5: "44",
+  l6: "120",
+  l7: ["1 and 2 and 3", "1, 2, 3", "123", "1 2 3"],
+  l8: "fake",
+  l9: "ready",
 }
-const audio = new Audio("../game/assets/audio/callingSFX.mp3");
-const audio2 = new Audio("../game/assets/audio/pickupSFX.mp3");
+
+const gameAudio = {
+  phoneRinging: new Audio("../game/assets/audio/callingSFX.mp3"),
+  phonePickup: new Audio("../game/assets/audio/pickupSFX.mp3"),
+}
+
 
 let popup = document.querySelector(".welcomePopup");
 console.log(popup);
