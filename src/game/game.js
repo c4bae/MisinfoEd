@@ -13,10 +13,22 @@ const UI = {
 
   l2HelpVideo: document.querySelector(".video"),
 
-  finalTrueContainer = document.querySelector(".wrap"),
-  finalFalseContainer = document.querySelector(".wrap1"),
-  finalTrueButton = document.querySelector(".trueButton"),
-  finalFalseButton = document.querySelector(".falseButton"),
+  finalTrueContainer: document.querySelector(".wrap"),
+  finalFalseContainer: document.querySelector(".wrap1"),
+  finalTrueButton: document.querySelector(".trueButton"),
+  finalFalseButton: document.querySelector(".falseButton"),
+}
+
+const puzzleInstructionsText = {
+//  NOTE: l1 instructions do not exist as it is the starting text for <p> in the puzzle frame
+ l2: "Now, lets conduct a <b> reverse image search </b> on the authors profile picture. Go to <i>https://images.google.ca</i>, and drag the image into the search bar. Whats the link of the most popular website result? For more help view video on the left!",
+ l3: "<b>Lets start to wrap up on the author. </b> I heard of some inconsistency between the article date and the authors join date. By how many months are the dates different? If we made a mistake and there is no disparity, just tell us the word: none.",
+ l4: "Sources have told us that there are something is wrong with the <b>headline</b> compared to other articles. Lets do some <b> lateral reading </b>, which is where you evaluate the credibility of a source by comparing it to other websites. Search up something like the headline of this article. What word or number is incorrect?",
+ l5: "Now whats the actual amount of money thats supposed to be in the headline? If you cant remember you can always go back to searching again.",
+ l6: "Lets look for more inconsistencies throughout the article. Sources have told me it may have something to do with money. Look through the paragraphs and see if there are any other numbers that arent $44 billion. You have already found out the actual amount of money, now get to it! Enter the other wrong amount thats located in the article.",
+ l7: "Just a couple more to go! This time we got news about a <b> whole paragraph (or two!) </b> not matching with the vast majority of other articles. You know what to do, find what number paragraph(s), 1, 2, or 3, matches this description! If there are multiple, separate the numbers with: <mark>and</mark>.",
+ l8: "Lets do some <b> reverse searching </b> again, except with social media like this one. Try searching up what the tweet says along with the words <i> Elon Musk tweet </i> on Google. If nothing comes up or any directly articles, its likely fake and made up. Enter whether its fake or real.",
+ l9: "<b>Now thats all from me!</b> Lets wrap up. You can continue to investigate this website and find more fake information located in this article. Otherwise, its time for you to give your final conclusion on whether or not this article is fake or not. When you are ready, enter <b>ready</b>!",
 }
 
 const puzzleAnswers = {
@@ -29,6 +41,30 @@ const puzzleAnswers = {
   l7: ["1 and 2 and 3", "1, 2, 3", "123", "1 2 3"],
   l8: "fake",
   l9: "ready",
+}
+
+const puzzleCompletionText = {
+  l1: "<b>Nice catch!</b> <br> <br> Notice how this email is not personally the authors, but the whole organizations. Remember that reputable news sites usually have personal email addresses for each author. This gives us a good reason to be suspicious so far.",
+  l2: "<b>Who could have guessed! Its a stock image.</b> <br> Stock photos are generic photos, not depicting real people, that are used for various reasons. Remember, reverse image searching can be very useful and has clearly told us that so far, something is very off about this.",
+  l3: "<b>The author wrote the article before joining?</b> <br> That is fairly funny. Such a simple mistake but it tells us a lot. Remember to look closely for any mistakes as it can really tell a <b> lot </b> about the accuracy of the website. Now lets move on to the article itself for further clues.",
+  l4: "Perfect! Seems like it! What you just did was <b>laterally read</b>. This is a very efficient tool for recognizing fake-news and disinformation used by many of us. If things such as headlines, info, and more are not consistent, one party must have some sort of false information.",  
+  l5: "Nice! Another mistake is abnormal and at this point we could really call this news fake and a source of disinformation. But lets delve deeper into this website before we can really confirm it. Remember <b> lateral reading </b> - its gonna help you a lot in the future.",
+  l6: "Who could have guessed, another mistake! This website is really just not polished. Looking out for mistakes like these are great and always reliable. Lets look into a few more before we move on from the content of the website.",
+  l7: "This seemed really fake anyway. When looking into the last paragraph, you may have noticed that <b>fact-checking websites</b> pop up. This will be the case for viral news. If you arent sure whether a viral post is real or not, its a good idea to check these websites.",
+  l8: "Youve done it again! This is another form of <b> reverse searching </b> that can help you a lot in investigating disinformation. With how prevalent social media is nowadays, you can find nearly anything anybody says on the internet.",
+  l9: "On the next page you will be presented with two options - <b> Real </b> or <b> Fake</b>. Choose the one you best believe. It has been great working with you rookie and I proudly welcome you to the team!",
+}
+
+const puzzleFeedbackText = {
+  l1: "Incorrect. Keep looking around the article!",
+  l2: "Incorrect. The author's profile is located on the left side of the website!",
+  l3: "Not quite! Heres a helpful tip: read carefully throught the description provided on the author.",
+  l4: "Thats not quite it! Heres a hint: it relates to a number. Enter in billions and without the $ sign.",
+  l5: "A little off! Remember to go search in a new tab again if you forgot. Enter in billions and without the $ sign.",
+  l6: "Heres some help, its located in the first paragraph of the article. Remember that you are supposed to enter the wrong amount of money! Enter in billions and without the $ sign.",
+  l7: "Not quite it. Remember there may be more than one inconsistent paragraph! If there is, seperate your answer with the word and. For example 5 and 7, 9 and 13, etc.",
+  l8: "Have you found any tweets? If not, its probably fake. Also there should not be any capitals in the word real or fake!",
+  l9: "The word is ready with all lowercase letters.",
 }
 
 const gameAudio = {
@@ -99,6 +135,72 @@ function toggleCall() {
     openPopup();
   }, 1000);
 }
+
+class Puzzle {
+  constructor(puzzleInstructions, inputPlaceholder, submitPuzzle) {
+    this.puzzleInstructions = puzzleInstructions;
+    this.inputPlaceholder = inputPlaceholder;
+    this.submitPuzzleObject = submitPuzzleObject;
+    this.submitPuzzle = submitPuzzle;
+  }
+
+  begin() {
+    UI.gameContinueBtn.style.display = "none";
+    UI.gameSubmitBtn.style.display = "block";
+    UI.inputElement.style.display = "block";
+
+    UI.gameSubmitBtn.classList.add("fadein-class");
+    UI.inputElement.classList.add("fadein-class");
+    
+    UI.inputElement.value = "";
+    UI.inputElement.placeholder = this.inputPlaceholder;
+
+    setTimeout(() => {
+      UI.gamePuzzleText.innerHTML = this.puzzleInstructions;
+      UI.gamePuzzleText.classList.remove("fadeoutandin-class");
+      
+      UI.gameSubmitBtn.onclick = this.submitPuzzle;
+    }, 500);
+
+  }
+}
+
+class submitPuzzle {
+  constructor(answer, correctComment, incorrectComment, nextPuzzle) {
+    this.answer = answer;
+    this.correctComment = correctComment;
+    this.incorrectComment = incorrectComment;
+    this.nextPuzzleObject = nextPuzzleObject;
+    this.nextPuzzle = nextPuzzle;
+  }
+
+  submit() {
+    if(this.answer.toLowerCase() === puzzleAnswers.l1) {
+      UI.gameContinueBtn.style.display = "block";
+      UI.gameSubmitBtn.style.display = "none";
+      UI.inputElement.style.display = "none";
+
+      UI.gameSubmitBtn.classList.remove("fadein-class");
+      UI.inputElement.classList.remove("fadein-class");
+      UI.gameContinueBtn.classList.add("fadein-class");
+
+      UI.gamePuzzleText.classList.add("fadeoutandin-class");
+
+      setTimeout(() => {
+        UI.gamePuzzleText.innerHTML = this.correctComment;
+        UI.gamePuzzleText.classList.remove("fadeoutandin-class");
+
+        UI.gameContinueBtn.onclick = this.nextPuzzle;
+      }, 500);
+    }
+
+    else {
+      alert(this.incorrectComment);
+    }
+
+  }
+}
+
 
 function submitPuzzle1() {
   console.log("submitted");
