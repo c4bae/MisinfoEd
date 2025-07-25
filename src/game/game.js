@@ -136,29 +136,33 @@ function closePopup() {
   UI.introPopup.classList.remove("open-popup");
   UI.body.classList.remove("blur");
 
+  initializeGame();
+
   setTimeout(() => {
     UI.gamePuzzleFrame.classList.add("puzzleopen-popup");
+    initializeGame();
   }, 1000);
 }
 
 /////
 
 class PuzzleView {
-  constructor(puzzleInstructions, inputPlaceholder, submitPuzzle) {
+  constructor(id, puzzleInstructions, inputPlaceholder) {
+    this.id = id;
     this.puzzleInstructions = puzzleInstructions;
     this.inputPlaceholder = inputPlaceholder;
-    this.submitPuzzleObject = submitPuzzleObject;
-    this.submitPuzzle = submitPuzzle;
   }
 
-  submit() {
+  begin() {
     //submits answer, passes it on to "submitPuzzle" object
     UI.gameContinueBtn.style.display = "none";
     UI.gameSubmitBtn.style.display = "block";
     UI.inputElement.style.display = "block";
 
-    UI.gameSubmitBtn.classList.add("fadeIn");
-    UI.inputElement.classList.add("fadeIn");
+    if(this.id != "l1") {
+      UI.gameSubmitBtn.classList.add("fadeIn");
+      UI.inputElement.classList.add("fadeIn");
+    }
     
     UI.inputElement.value = "";
     UI.inputElement.placeholder = this.inputPlaceholder;
@@ -167,19 +171,15 @@ class PuzzleView {
       UI.gamePuzzleText.innerHTML = this.puzzleInstructions;
       UI.gamePuzzleText.classList.remove("fadeOutandIn");
 
-      UI.gameSubmitBtn.onclick = this.submitPuzzle;
     }, 500);
-
   }
 }
 
 class PuzzleChecker {
-  constructor(answer, correctComment, incorrectComment, nextPuzzle) {
+  constructor(answer, correctComment, incorrectComment) {
     this.answer = answer;
     this.correctComment = correctComment;
     this.incorrectComment = incorrectComment;
-    this.nextPuzzleObject = nextPuzzleObject;
-    this.nextPuzzle = nextPuzzle;
   }
 
   check() {
@@ -206,18 +206,27 @@ class PuzzleChecker {
     else {
       alert(this.incorrectComment);
     }
-
   }
 }
 
-puzzleData.forEach(() => {
+/////
 
-})
+function initializeGame() {
+  let puzzleViewObjs = [];
+  let puzzleCheckObjs = [];
 
-const puzzleViewObjs = map()
+  //map() returns a new array, while forEach() doesn't. hence map() is used here
+  puzzleViewObjs = puzzleData.map((level) => {
+    return new PuzzleView(level.id, level.instructions, level.placeholder);
+    //when curly brackets follow arrows, must use "return"
+  })
 
-const puzzleCheckObjs = 
+  puzzleCheckObjs = puzzleData.map((level) => {
+    return new PuzzleChecker(UI.inputElement.value, level.correctComment, level.incorrectComment)
+  })
 
+  puzzleViewObjs[0].begin();
+}
 
 function submitPuzzle1() {
   console.log("submitted");
