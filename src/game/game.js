@@ -1,4 +1,6 @@
 const UI = {
+  body: document.querySelector("body"),
+
   beginOverlay: document.querySelector(".begin-overlay"),
   beginGameBtn: document.querySelector(".begin-btn"),
 
@@ -98,68 +100,48 @@ const gameAudio = {
   phonePickup: new Audio("../game/assets/audio/pickupSFX.mp3"),
 }
 
+/////
+
 function beginGame() {
-  document.querySelector(".begin-overlay").style.display = "none";
-  document.querySelector(".begin-btn").style.display = "none";
+  UI.beginOverlay.style.display = "none";
+  UI.beginGameBtn.style.display = "none";
 
   setTimeout(() => {
-    audio.loop = true;
-    audio.play();
-
-    audio.onerror = function () {
-      console.error("Error loading audio file");
-    };
-
-    audio.oncanplay = function () {
-      console.log("Audio is ready to play");
-      audio.play();
-    };
+    gameAudio.phoneRinging.loop = true;
+    gameAudio.phoneRinging.play();
   }, 1000);
 
   setTimeout(() => {
-    var popup = document.getElementById("callPopup");
-    popup.classList.toggle("active");
+    UI.callPopup.classList.toggle("active");
 
-    var body = document.querySelector("body");
-    body.classList.add("blur");
+    UI.body.classList.add("blur");
   }, 4000);
 }
 
-let popup = document.querySelector(".welcomePopup");
-console.log(popup);
-let onePopupOpened = false;
-
-function openPopup() {
-  if (!onePopupOpened) {
-    popup.classList.add("open-popup");
-    onePopupOpened = true;
-  }
-}
-
-function closePopup() {
-  popup.classList.remove("open-popup");
-  onePopupOpened = false;
-  var body = document.querySelector("body");
-  body.classList.remove("blur");
-
-  setTimeout(() => {
-    let puzzlePopup = document.querySelector(".puzzlePopup1");
-    puzzlePopup.classList.add("puzzleopen-popup");
-  }, 1000);
-}
-
 function toggleCall() {
-  console.log("yes");
-  audio.pause();
-  audio2.play();
+  gameAudio.phoneRinging.pause();
+  gameAudio.phonePickup.play();
+
   var callPopup = document.getElementById("callPopup");
   callPopup.classList.remove("active");
 
   setTimeout(() => {
-    audio2.pause();
-    openPopup();
+    gameAudio.phonePickup.pause();
+    
+    UI.introPopup.classList.add("open-popup");  //opens the welcome info popup
   }, 1000);
 }
+
+function closePopup() {
+  UI.introPopup.classList.remove("open-popup");
+  UI.body.classList.remove("blur");
+
+  setTimeout(() => {
+    UI.gamePuzzleFrame.classList.add("puzzleopen-popup");
+  }, 1000);
+}
+
+/////
 
 class PuzzleView {
   constructor(puzzleInstructions, inputPlaceholder, submitPuzzle) {
@@ -176,14 +158,14 @@ class PuzzleView {
     UI.inputElement.style.display = "block";
 
     UI.gameSubmitBtn.classList.add("fadeIn");
-    UI.inputElement.classList.add("fadei");
+    UI.inputElement.classList.add("fadeIn");
     
     UI.inputElement.value = "";
     UI.inputElement.placeholder = this.inputPlaceholder;
 
     setTimeout(() => {
       UI.gamePuzzleText.innerHTML = this.puzzleInstructions;
-      UI.gamePuzzleText.classList.remove("fadeoutandin-class");
+      UI.gamePuzzleText.classList.remove("fadeOutandIn");
 
       UI.gameSubmitBtn.onclick = this.submitPuzzle;
     }, 500);
@@ -207,15 +189,15 @@ class PuzzleChecker {
       UI.gameSubmitBtn.style.display = "none";
       UI.inputElement.style.display = "none";
 
-      UI.gameSubmitBtn.classList.remove("fadein-class");
-      UI.inputElement.classList.remove("fadein-class");
-      UI.gameContinueBtn.classList.add("fadein-class");
+      UI.gameSubmitBtn.classList.remove("fadeIn");
+      UI.inputElement.classList.remove("fadeIn");
+      UI.gameContinueBtn.classList.add("fadeIn");
 
-      UI.gamePuzzleText.classList.add("fadeoutandin-class");
+      UI.gamePuzzleText.classList.add("fadeOutandIn");
 
       setTimeout(() => {
         UI.gamePuzzleText.innerHTML = this.correctComment;
-        UI.gamePuzzleText.classList.remove("fadeoutandin-class");
+        UI.gamePuzzleText.classList.remove("fadeOutandIn");
 
         UI.gameContinueBtn.onclick = this.nextPuzzle;
       }, 500);

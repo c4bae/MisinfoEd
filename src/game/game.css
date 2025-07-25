@@ -323,7 +323,7 @@ a {
   }
 }
 
-.puzzlePopup1 {
+.puzzleWindow {
   border: 2px solid #000;
   z-index: 6;
   max-width: 400px;
@@ -347,13 +347,13 @@ a {
   transform: translate(50%, -45%) scale(1);
 }
 
-.puzzlePopup1 p {
+.puzzleWindow p {
   text-align: center;
   font-size: 20px;
   color: #000;
 }
 
-.puzzle1Input {
+.puzzleInput {
   position: relative;
   top: 20%;
   padding: 12px;
@@ -362,7 +362,7 @@ a {
   font-family: monospace;
 }
 
-.puzzle1Button {
+.puzzleSubmitBtn {
   justify-self: center;
   position: relative;
   width: 50%;
@@ -376,20 +376,20 @@ a {
   cursor: pointer;
 }
 
-.fadeoutandin-class {
+.fadeOutandIn{
   animation-name: fadeoutandin;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
 }
 
-.fadein-class {
+.fadeIn{
   animation-name: fadeIn;
   animation-duration: 2.5s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
 }
 
-.puzzle1Finish {
+.puzzleContinueBtn {
   justify-self: center;
   display: none;
   cursor: pointer;
@@ -427,7 +427,7 @@ a {
   }
 }
 
-.wrap {
+.finalBtnContainer {
   opacity: 0;
   position: fixed;
   top: 50%;
