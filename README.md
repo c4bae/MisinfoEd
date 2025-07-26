@@ -29,7 +29,12 @@ Teaches users by guiding them through a pre-designed fake article about ways to 
 
 ## Screenshots
 
-![](https://github.com/c4bae/MisinfoEd/images/preview1.png)
-![](https://github.com/c4bae/MisinfoEd/images/preview2.png)
-![](https://github.com/c4bae/MisinfoEd/images/preview3.png)
-
+<kbd>
+  <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview1.png">
+</kbd>
+<kbd>
+  <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview2.png">
+</kbd>
+<kbd>
+  <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview3.png">
+</kbd>
