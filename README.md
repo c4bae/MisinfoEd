@@ -1,7 +1,7 @@
 
 # Educational Misinformative Website
 
-Created as part of the #UnHackathon 2023 hosted by **KnowledgeFlow** and **ICTC**, and awarded 1st Place.
+Created as part of the #UnHackathon 2023 hosted by **KnowledgeFlow** and **ICTC**, and awarded 1st Place. Remastered for 2025.
 
 Teaches users by guiding them through a pre-designed fake article about ways to combat fake news, especially in a media controlled world today. Designed for ages 13+. 
 
@@ -31,10 +31,10 @@ Teaches users by guiding them through a pre-designed fake article about ways to 
 
 <kbd>
   <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview1.png">
-</kbd>
+</kbd>  
 <kbd>
   <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview2.png">
-</kbd>
+</kbd>  
 <kbd>
   <img src="https://github.com/c4bae/MisinfoEd/blob/main/images/preview3.png">
-</kbd>
+</kbd>  
